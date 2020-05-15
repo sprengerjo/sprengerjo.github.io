@@ -1,81 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Jonas Sprenger">
-  <title>Jonas Sprenger · software crafter</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Jonas Sprenger" />
+    <title>Jonas Sprenger · software crafter</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-  <script src="main.js"></script>
-  <style>
-    body {
-      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: calc(10px + 0.33vw);
-      -webkit-font-smoothing: antialiased;
-      padding: 5vh 10vw;
-      color: #121314;
-    }
-    h1 {
-      font-size: 4.5em;
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-    p {
-      font-size: 1.6em;
-      font-weight: 300;
-      line-height: 1.4;
-      max-width: 26em;
-    }
-    a {
-      text-decoration: none;
-      color: #121314;
-      position: relative;
-    }
-    a:after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 60%;
-      left: -0.1em;
-      right: -0.1em;
-      bottom: 0;
-      transition: top 200ms cubic-bezier(0, .8, .13, 1);
-      background-color: rgba(102,102,102,0.5);
-    }
-    a:hover:after {
-      top: 0%;
-    }
-  </style>
-</head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,500,700"
+      rel="stylesheet"
+    />
+    <script src="main.js"></script>
+    <style>
+      body {
+        font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        font-size: calc(10px + 0.33vw);
+        -webkit-font-smoothing: antialiased;
+        padding: 5vh 10vw;
+        color: #121314;
+      }
+      h1 {
+        font-size: 4.5em;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+      p {
+        font-size: 1.6em;
+        font-weight: 300;
+        line-height: 1.4;
+        max-width: 26em;
+      }
+      a {
+        text-decoration: none;
+        color: #121314;
+        position: relative;
+      }
+      a:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 60%;
+        left: -0.1em;
+        right: -0.1em;
+        bottom: 0;
+        transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+        background-color: rgba(102, 102, 102, 0.5);
+      }
+      a:hover:after {
+        top: 0%;
+      }
+      #elm {
+        display: none;
+        max-width: 500px;
+      }
+    </style>
+  </head>
 
-<body class="text-center">
+  <script>
+    function togglePopup() {
+      popup = document.getElementById('elm');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+  <body class="text-center">
     <h1>Hello.</h1>
-     <p style="font-weight:500; font-size:2.2em">
-       My name is Jonas Sprenger.
-     </p>
-     <p>
-       I am a software crafter. I broaden my perspective of programming by examining languages. You can find
-       coding katas in various languages on <a href="https://github.com/sprengerjo" target="_blank">GitHub</a> or
-       <a href="https://www.codewars.com/users/sprengerjo" target="_blank">Codewars</a>.
-     </p>
-     <p>
-       I listen to various tech pod casts, e.g. <a href="https://www.codingblocks.net/" target="_blank">Coding Blocks</a> and
-       <a href="http://www.se-radio.net/" target="_blank">SE Radio</a>. You can find more about me
-       on <a href="https://www.linkedin.com/in/jonas-sprenger-28a88311a" target="_blank">LinkedIn</a> or
-       <a href="https://www.xing.com/profile/Jonas_Sprenger/cv" target="_blank">Xing</a>.
-     </p>
-     <p>
-      Outside of programming I help my wife take care of our wunderful kid. I enjoy all kinds of sports and mindfulness
-      activities.
-     </p>
+    <p style="font-weight: 500; font-size: 2.2em;">
+      My name is Jonas Sprenger.
+    </p>
+    <p>
+      I am a software crafter. I participate in the software craftsmanship
+      community and enjoy attending Socrates conferences. I have several years
+      of experience in development with Java and Javascript/Typescript. Recently
+      also Ruby and Python. I feel comfortable in both frontend and backend
+      development. I like to use Clojure or Elm for
+      <a href="https://github.com/sprengerjo" target="_blank"
+        >private projects</a
+      >, e.g.
+      <a href="#" onclick="togglePopup();">game of life</a>.
+    </p>
+    <div id="elm" class="col-xl">
+      <script type="text/javascript">
+        var node = document.getElementById('elm');
+        var app = Elm.GameOfLifeUi.embed(node, { n: 30 });
+      </script>
+    </div>
+    <p>
+      You can find me at <a
+        href="https://www.linkedin.com/in/jonas-sprenger-28a88311a"
+        target="_blank"
+        >LinkedIn</a
+      >
+      ,
+      <a href="https://www.xing.com/profile/Jonas_Sprenger/cv" target="_blank"
+        >Xing</a
+      >
+      or
+      <a href="https://www.codewars.com/users/sprengerjo" target="_blank"
+        >Codewars</a
+      >.
+    </p>
+    <p>
+      Outside of programming I enjoy tech podcasts, all kinds of sports and
+      <a href="https://dailystoic.com/" target="_blank">stoic</a> exercises.
 
-    <!--<div id="elm" class="col-xl">-->
-        <!--<script type="text/javascript">-->
-          <!--var node = document.getElementById('elm');-->
-          <!--var app = Elm.GameOfLifeUi.embed(node, {n: 30})-->
-          <!--</script>-->
-    <!--</div>-->
-  </div>
-</body>
+    </p>
+  </body>
 </html>
