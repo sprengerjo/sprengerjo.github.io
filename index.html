@@ -7,13 +7,15 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="author" content="Jonas Sprenger" />
+    <meta name="description" content="Jonas Sprenger - Software Crafter with experience in Java, Kotlin, JavaScript/TypeScript, Ruby, Python, Clojure and Elm" />
     <title>Jonas Sprenger · software crafter</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Rubik:300,500,700"
       rel="stylesheet"
     />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="game-of-life.css">
+    <script src="game-of-life.js"></script>
     <style>
       body {
         font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -54,16 +56,12 @@
       a:hover:after {
         top: 0%;
       }
-      #elm {
-        display: none;
-        max-width: 500px;
-      }
     </style>
   </head>
 
   <script>
     function togglePopup() {
-      popup = document.getElementById('elm');
+      popup = document.getElementById('gameOfLife');
       popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
     }
   </script>
@@ -74,22 +72,60 @@
       My name is Jonas Sprenger.
     </p>
     <p>
-      I am a software crafter. I participate in the software craftsmanship
-      community and enjoy attending Socrates conferences. I have several years
-      of experience in development with Java and Javascript/Typescript. Recently
-      also Ruby and Python. I feel comfortable in both frontend and backend
-      development. I like to use Clojure or Elm for
-      <a href="https://github.com/sprengerjo" target="_blank"
-        >private projects</a
-      >, e.g.
-      <a href="#" onclick="togglePopup();">game of life</a>.
+      I am an experienced full-stack engineer and team leader. 
+      in developing Software as a Service (SaaS) platforms and workflow automation solutions. I am experienced in 
+      in TypeScript, Node.js, Java/Kotlin, React, and cloud architectures (AWS and Kafka). 
+      I love designing scalable systems, hands-on coding and fostering high-performing teams. 
+      I also enjoy fostering high-performing engineering teams.
     </p>
-    <div id="elm" class="col-xl">
-      <script type="text/javascript">
-        var node = document.getElementById('elm');
-        var app = Elm.GameOfLifeUi.embed(node, { n: 30 });
-      </script>
+    <p>
+      Currently working as Lead Software Engineer, I've previously led teams at BRYTER, 
+      PEOPLEWARE, and other companies, contributing to low-code platforms. I also enjoy building 
+      <a href="https://github.com/sprengerjo" target="_blank"
+        >personal projects</a
+      > like this
+      <a href="#" onclick="togglePopup();">game of life</a>
+      implementation.
+    </p>
+    <div id="gameOfLife" class="col-xl">
+      <div class="game-area">
+        <div class="grid-container">
+          <div id="grid" class="grid"></div>
+        </div>
+        
+        <div class="controls">
+          <h3>Controls</h3>
+          
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value" id="generation">0</div>
+              <div class="stat-label">Generation</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="livingCells">5</div>
+              <div class="stat-label">Living Cells</div>
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <button id="playPauseBtn">▶️ Start</button>
+            <button id="nextBtn">⏭️ Next</button>
+            <button id="resetBtn" class="reset-btn">🔄 Reset</button>
+          </div>
+          
+          <div class="control-group">
+            <label for="speedSlider">Speed:</label>
+            <input type="range" id="speedSlider" min="1" max="20" value="10" step="1">
+            <div class="speed-display">550ms per Generation</div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <script>
+      // Initialize Game of Life when page loads
+      document.addEventListener('DOMContentLoaded', initializeGameOfLife);
+    </script>
     <p>
       You can find me at <a
         href="https://www.linkedin.com/in/jonas-sprenger-28a88311a"
